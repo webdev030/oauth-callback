@@ -14,6 +14,8 @@
             if (authCode) {
                 // Display the authorization code on the page
                 document.getElementById('auth-code').innerText = authCode;
+                window.opener.handleOAuthCode(authCode);
+                window.close();
             } else {
                 document.getElementById('auth-code').innerText = 'No authorization code found.';
             }
@@ -22,7 +24,7 @@
 </head>
 <body>
     <h1>OAuth Callback</h1>
-    <p>Your authorization code is: <strong id="auth-code"></strong></p>
+    <p><strong id="auth-code"></strong></p>
 
     <p>Copy this code and use it in your application to obtain the access and refresh tokens.</p>
 </body>
