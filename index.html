@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAuth Callback</title>
+    <script>
+        // This script runs when the page loads
+        window.onload = function() {
+            // Get the full URL query string (e.g., ?code=AUTH_CODE_HERE)
+            const params = new URLSearchParams(window.location.search);
+            const authCode = params.get('code');
+
+            if (authCode) {
+                // Display the authorization code on the page
+                document.getElementById('auth-code').innerText = authCode;
+            } else {
+                document.getElementById('auth-code').innerText = 'No authorization code found.';
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>OAuth Callback</h1>
+    <p>Your authorization code is: <strong id="auth-code"></strong></p>
+
+    <p>Copy this code and use it in your application to obtain the access and refresh tokens.</p>
+</body>
+</html>
